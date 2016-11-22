@@ -10,7 +10,7 @@ $(document).ready(function(){
 
     $(document).keydown(function () {
         if (event.which == 118 || event.which == 86) {
-            var verse = prompt("Escolha o versículo", versiculoAtual);
+            var verse = prompt("Escolha o versículo (1 a " + ultimoVersiculo + ")", versiculoAtual);
             if (verse != undefined && verse % 1 === 0) {
                 versiculoAtual = verse;
                 selecionaVersiculo();
