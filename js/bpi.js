@@ -5,6 +5,7 @@
 
 $(document).ready(function(){
 
+    const OFFSET_CABECALHO = 92;
     var versiculoAtual = 1;
     var ultimoVersiculo = document.getElementsByTagName('sup').length;
 
@@ -14,27 +15,26 @@ $(document).ready(function(){
             if (verse != undefined && verse % 1 === 0) {
                 versiculoAtual = verse;
                 selecionaVersiculo();
-            }   
+            }
         } else if (event.which == 37) { //esquerda
             versiculoAtual--;
-            if (versiculoAtual < 1) 
+            if (versiculoAtual < 1)
                 versiculoAtual = 1;
             selecionaVersiculo();
         } else if (event.which == 39) { //direita
             versiculoAtual++;
-            if (versiculoAtual > ultimoVersiculo) 
+            if (versiculoAtual > ultimoVersiculo)
                 versiculoAtual = ultimoVersiculo;
             selecionaVersiculo();
-        }  
+        }
     });
 
     function selecionaVersiculo() {
         $('html, body').animate({
-            scrollTop: $('p.verse[verse=' + versiculoAtual + ']').offset().top - 100
+            scrollTop: $('p.verse[verse=' + versiculoAtual + ']').offset().top - OFFSET_CABECALHO
         }, 'slow');
     }
 
     //ao começar o documento, seleciono versículo 1
     selecionaVersiculo();
 });
-
