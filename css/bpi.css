@@ -1,15 +1,18 @@
+
 #titulo {
   font-size: 2.5em;
+  font-family: Helvetica Neue,Helvetica,Arial,sans-serif;
 }
 
 .verse {
-    font-size:350%;
+    font-family: Palatino,Book Antiqua,Georgia,serif;
+    font-size:340%;
 }
 
 #passagem {
   margin-left: auto;
   margin-right: auto;
-  width: 48em;
+  width: 50em;
   margin-top: 120px;
 }
 
@@ -25,8 +28,9 @@
 }
 
 sup {
-  margin-right: 5px;
-  font-size: 0.7em;
+  margin-right: 10px;
+  font-style: italic;
+  font-size: 0.5em;
 }
 
 #indice_capitulos {
