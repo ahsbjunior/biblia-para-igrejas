@@ -16,6 +16,16 @@ $(document).ready(function(){
                 versiculoAtual = verse;
                 selecionaVersiculo();
             }
+        } else if (event.which == 67) {
+          var numeroDeCapitulos = document.getElementsByTagName("TD").length;
+          var nomeDocumentoArray = location.pathname.split("/");
+          var nomeArquivo = nomeDocumentoArray[nomeDocumentoArray.length - 1];
+          var livroAtual = nomeArquivo.split("-")[0];
+          var capituloAtual = nomeArquivo.split("-")[1].split(".")[0];
+          var capitulo = prompt("Escolha o capítulo\n(1 a " + numeroDeCapitulos +  ")", capituloAtual);
+          if (capitulo != undefined && capitulo % 1 === 0 && capitulo <= numeroDeCapitulos && capitulo != capituloAtual) {
+              window.open(livroAtual + "-" + capitulo + ".html", "_self");
+          }
         } else if (event.which == 37) { //esquerda
             versiculoAtual--;
             if (versiculoAtual < 1)
