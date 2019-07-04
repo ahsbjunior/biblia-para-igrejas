@@ -4,6 +4,12 @@
   font-family: Helvetica Neue,Helvetica,Arial,sans-serif;
 }
 
+#titulo_indice {
+  font-size: 1.5em;
+  font-family: Helvetica Neue,Helvetica,Arial,sans-serif;
+}
+
+
 .verse {
     font-family: Palatino,Book Antiqua,Georgia,serif;
     font-size:340%;
@@ -27,8 +33,90 @@
   color: #FFF;
 }
 
+.header_indice {
+  position: fixed;
+  height: 50px;
+  top: 0;
+  width: 100%;
+  z-index: 100;
+  text-align: center;
+  background-color: #000;
+  color: #FFF;
+}
+
+
+.indice_tabela {
+  margin-top: 60px;
+}
+
+
+.indice_tabela th {
+  margin-top: 50px;
+  height: 0;
+}
+
+.indice_tabela td {
+  width: 10%;
+}
+
+
+.indice_tabela a:link {
+  color: #fff;
+}
+
+
+.sigla {
+  margin-bottom: 4px;
+  color: #fff;
+  font-weight: bold;
+}
+
 .nome_livro {
-  font-size: 20px;
+  font-size: 14px;
+  margin-top: 0px;
+  margin-bottom: 16px;
+  color: #fff;
+  font-weight:bolder;
+}
+
+.pentateuco {
+  background-color: #1A070D;
+}
+
+.historicos {
+  background-color: #310E1A;
+}
+
+.poeticos {
+  background-color: #481727;
+}
+
+.profetas_maiores {
+  background-color: #61354C;
+}
+
+.profetas_menores {
+  background-color: #7A546F;
+}
+
+.evangelhos {
+  background-color: #283554;
+}
+
+.atos {
+  background-color: #334E68;
+}
+
+.cartas_paulo {
+  background-color: #3E6A7C;
+}
+
+.cartas_gerais {
+  background-color: #498A8F;
+}
+
+.profetico {
+  background-color: #55A297;
 }
 
 sup {

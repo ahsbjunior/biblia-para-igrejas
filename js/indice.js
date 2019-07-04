@@ -1,66 +1,5 @@
 
 var livros = carregarJSON();
-var versiculoAtual = 1;
-var ultimoVersiculo;
-
-const OFFSET_CABECALHO = 92;
-
-$(document).ready(function(){
-  ultimoVersiculo = document.getElementsByTagName('sup').length;
-    $(document).keydown(function () {
-        if (event.which == 118 || event.which == 86) { // letra V
-          promptVersiculo()
-        } else if (event.which == 67) { // letra C
-          promptCapitulo()
-        } else if (event.which == 76) { //letra L
-          promptLivro()
-        } else if (event.which == 37) { //esquerda
-            versiculoAtual--;
-            if (versiculoAtual < 1)
-                versiculoAtual = 1;
-            selecionaVersiculo(versiculoAtual);
-        } else if (event.which == 39) { //direita
-            versiculoAtual++;
-            if (versiculoAtual > ultimoVersiculo)
-                versiculoAtual = ultimoVersiculo;
-            selecionaVersiculo(versiculoAtual);
-        }
-    });
-
-    //ao começar o documento, seleciono versículo 1
-    selecionaVersiculo(1);
-});
-
-
-
-function selecionaVersiculo(v) {
-  console.log(v);
-    $('html, body').animate({
-        scrollTop: $('p.verse[verse=' + v + ']').offset().top - OFFSET_CABECALHO
-    }, 'slow');
-}
-
-
-function promptVersiculo() {
-  var verse = prompt("Escolha o versículo (1 a " + ultimoVersiculo + ")", versiculoAtual);
-  if (verse != undefined && verse % 1 === 0) {
-      versiculoAtual = verse;
-      selecionaVersiculo(versiculoAtual);
-  }
-}
-
-
-function promptCapitulo() {
-  var numeroDeCapitulos = document.getElementsByTagName("TD").length;
-  var nomeDocumentoArray = location.pathname.split("/");
-  var nomeArquivo = nomeDocumentoArray[nomeDocumentoArray.length - 1];
-  var livroAtual = nomeArquivo.split("-")[0];
-  var capituloAtual = nomeArquivo.split("-")[1].split(".")[0];
-  var capitulo = prompt("Escolha o capítulo\n(1 a " + numeroDeCapitulos +  ")", capituloAtual);
-  if (capitulo != undefined && capitulo % 1 === 0 && capitulo <= numeroDeCapitulos && capitulo != capituloAtual) {
-      window.open(livroAtual + "-" + capitulo + ".html", "_self");
-  }
-}
 
 
 function promptCapitulo2(livroInt) {
@@ -68,24 +7,6 @@ function promptCapitulo2(livroInt) {
   var capitulo = prompt("Escolha o capítulo de "+ livro.nome.toUpperCase() + "\n(1 a " + livro.capitulos +  ")", 1);
   if (capitulo != undefined && capitulo % 1 === 0 && capitulo <= livro.capitulos) {
       window.open(livroInt + "-" + capitulo + ".html", "_blank");
-  }
-}
-
-function promptLivro() {
-  var nomeDocumentoArray = location.pathname.split("/");
-  var nomeArquivo = nomeDocumentoArray[nomeDocumentoArray.length - 1];
-  var livroAtual = nomeArquivo.split("-")[0];
-  var capituloAtual = nomeArquivo.split("-")[1].split(".")[0];
-  var livro = prompt("Escolha o livro e o capítulo (ex: 2co 2)", "");
-  if (livro != undefined && livro.length > 1) {
-    var arrayReferencia = livro.split(' ')
-    if (arrayReferencia.length > 0) {
-      var livroEscolhido = arrayReferencia[0].toLowerCase()
-      for (var i = 0; i<livros.length; i++) {
-        var livro = livros[i]
-        console.log(livro.sigla.toLowerCase());
-      }
-    }
   }
 }
 
@@ -160,8 +81,3 @@ function carregarJSON() {
             {sigla : "Ap", nome:"Apocalipse", capitulos:22,indice:66}
   ];
 }
-
-
-// function exibirModal(livro) {
-//   $("#myModal").modal()
-// }
