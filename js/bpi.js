@@ -12,6 +12,8 @@ $(document).ready(function(){
           promptVersiculo()
         } else if (event.which == 67) { // letra C
           promptCapitulo()
+        } else if (event.which == 70) { // letra F
+          //fullScreen()
         } else if (event.which == 76) { //letra L
           promptLivro()
         } else if (event.which == 37) { //esquerda
@@ -90,6 +92,24 @@ function promptLivro() {
 }
 
 
+function fullScreen() {
+  console.log('LETRAF')
+  var elem = document.documentElement;
+  if (elem.requestFullscreen) {
+    console.log('LETRAF')
+    elem.requestFullscreen();
+  } else if (elem.mozRequestFullScreen) { /* Firefox */
+    console.log('LETRAF')
+    elem.mozRequestFullScreen();
+  } else if (elem.webkitRequestFullscreen) { /* Chrome, Safari and Opera */
+    console.log('LETRAF')
+    elem.webkitRequestFullscreen();
+  } else if (elem.msRequestFullscreen) { /* IE/Edge */
+    console.log('LETRAF')
+    elem.msRequestFullscreen();
+  }
+}
+
 function carregarJSON() {
   return  [
             {sigla : "Gn", nome:"Gênesis", capitulos:50,indice:1},
@@ -153,7 +173,7 @@ function carregarJSON() {
             {sigla : "Tg", nome:"Tiago", capitulos:5,indice:59},
             {sigla : "1Pe", nome:"1ª Pedro", capitulos:5,indice:60},
             {sigla : "2Pe", nome:"2ª Pedro", capitulos:3,indice:61},
-            {sigla : "1Jo", nome:"1ª João", capitulos:3,indice:62},
+            {sigla : "1Jo", nome:"1ª João", capitulos:5,indice:62},
             {sigla : "2Jo", nome:"2ª João", capitulos:1,indice:63},
             {sigla : "3Jo", nome:"3ª João", capitulos:1,indice:64},
             {sigla : "Jd", nome:"Judas", capitulos:1,indice:65},
