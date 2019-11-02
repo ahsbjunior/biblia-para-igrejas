@@ -81,3 +81,17 @@ function carregarJSON() {
             {sigla : "Ap", nome:"Apocalipse", capitulos:22,indice:66}
   ];
 }
+
+
+function filtraLivrosPorTexto() {
+  var texto = "tessa";
+  var tabela = document.getElementById("tabela");
+  var tds = tabela.getElementsByTagName("td");
+  for (var i = 0; i < tds.length; i++) {
+    var ps = tds[i].getElementsByTagName("p")
+    for (var j = 0; j < ps.length; j++) {
+      if (!ps[j].innerText.match("Tessa")) tds[i].style.opacity = 0.15;
+      else tds[i].style.opacity = 1.0;
+    }
+  }
+}

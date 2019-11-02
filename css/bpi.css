@@ -83,6 +83,10 @@
   background-color: #1A070D;
 }
 
+.transparent {
+  opacity: 0.15;
+}
+
 .historicos {
   background-color: #310E1A;
 }
