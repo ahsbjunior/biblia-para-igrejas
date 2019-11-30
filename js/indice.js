@@ -83,15 +83,26 @@ function carregarJSON() {
 }
 
 
-function filtraLivrosPorTexto() {
-  var texto = "tessa";
+function filtraLivrosPorTexto(texto) {
+  var textoRegex = adicionaRegex(texto);
   var tabela = document.getElementById("tabela");
   var tds = tabela.getElementsByTagName("td");
   for (var i = 0; i < tds.length; i++) {
     var ps = tds[i].getElementsByTagName("p")
     for (var j = 0; j < ps.length; j++) {
-      if (!ps[j].innerText.match("Tessa")) tds[i].style.opacity = 0.15;
+      if (!ps[j].innerText.toLowerCase().match(textoRegex.toLowerCase())) tds[i].style.opacity = 0.15;
       else tds[i].style.opacity = 1.0;
     }
   }
+}
+
+function adicionaRegex(texto) {
+  var textoArray = texto.toLowerCase().split("")
+  var arrayRetorno = [".*"]
+  for (var i = 0; i < textoArray.length; i++) {
+    arrayRetorno.push(textoArray[i])
+    arrayRetorno.push(".*")
+  }
+
+  return arrayRetorno.join("")
 }
