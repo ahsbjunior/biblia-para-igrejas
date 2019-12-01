@@ -10,6 +10,12 @@
 }
 
 
+input[type=text] {
+  border: none;
+  border-bottom: 1px solid white;
+  background-color: transparent;
+}
+
 .verse {
     font-family: Palatino,Book Antiqua,Georgia,serif;
     font-size:340%;
