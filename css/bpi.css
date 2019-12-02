@@ -5,15 +5,27 @@
 }
 
 #titulo_indice {
-  font-size: 1.5em;
-  font-family: Helvetica Neue,Helvetica,Arial,sans-serif;
+    font-size: 1.5em;
+    font-family: Helvetica Neue,Helvetica,Arial,sans-serif;
+    text-align: center;
+    width:100%;
 }
 
 
 input[type=text] {
-  border: none;
-  border-bottom: 1px solid white;
-  background-color: transparent;
+    border: none;
+    border-bottom: 1px solid white;
+    background-color: transparent;
+    position: absolute;
+    right: 20px;
+    top: 10px;
+    /*width: 0px;*/
+    height:30px;
+    color:white;
+    size:50px;
+     font-weight: bold;
+    font-family: Helvetica Neue,Helvetica,Arial,sans-serif;
+    font-size:24px;
 }
 
 .verse {
@@ -45,7 +57,7 @@ input[type=text] {
   top: 0;
   width: 100%;
   z-index: 100;
-  text-align: center;
+  /*text-align: center;*/
   background-color: #000;
   color: #FFF;
 }

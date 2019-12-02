@@ -2,6 +2,19 @@
 var livros = carregarJSON();
 
 
+$(document).ready(function(){
+    focoNaBusca();
+    $(document).keydown(function () {
+        focoNaBusca();
+    });
+});
+
+
+
+function focoNaBusca() {
+    document.getElementById('buscaInput').focus();
+}
+
 function promptCapitulo2(livroInt) {
   var livro = livros[livroInt-1]
   var capitulo = prompt("Escolha o capítulo de "+ livro.nome.toUpperCase() + "\n(1 a " + livro.capitulos +  ")", 1);
@@ -82,6 +95,11 @@ function carregarJSON() {
   ];
 }
 
+
+function buscaTexto() {
+    var termo = document.getElementById("buscaInput").value;
+    filtraLivrosPorTexto(termo);
+}
 
 function filtraLivrosPorTexto(texto) {
   var textoRegex = adicionaRegex(texto);
