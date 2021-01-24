@@ -3,6 +3,16 @@ var livros = carregarJSON();
 
 
 $(document).ready(function(){
+    
+    var parametrosQueryString = window.location.search.split('?')
+    if(parametrosQueryString.length > 1) {
+        var parametro = parametrosQueryString[1].split('=')
+        if (parametro[0] === 'version') {
+           var valorParametro = parametro[1]
+           selecionaVersao(valorParametro) 
+        }
+    }
+    
     focoNaBusca();
     $(document).keydown(function () {
         focoNaBusca();
@@ -16,13 +26,43 @@ function focoNaBusca() {
 }
 
 function promptCapitulo2(livroInt) {
-  var livro = livros[livroInt-1]
-  var capitulo = prompt("Escolha o capítulo de "+ livro.nome.toUpperCase() + "\n(1 a " + livro.capitulos +  ")", 1);
-  if (capitulo != undefined && capitulo % 1 === 0 && capitulo <= livro.capitulos) {
-      window.open(livroInt + "-" + capitulo + ".html", "_blank");
-  }
+    var livro = livros[livroInt-1]
+    var versao = getVersao()
+    var capitulo = prompt("Escolha o capítulo de "+ livro.nome.toUpperCase() + "\n(1 a " + livro.capitulos +  ")", 1);
+    if (capitulo != undefined && capitulo % 1 === 0 && capitulo <= livro.capitulos) {
+        window.open(versao + "/" + livroInt + "-" + capitulo + ".html", "_blank");
+        //document.getElementById('formulario_bpi').submit()
+    }
 }
 
+
+function getVersao() {
+    var elements = document.getElementsByName('version')
+    var versao
+    for(i = 0; i < elements.length; i++) {
+        if(elements[i].checked) {
+            versao = elements[i].value
+        }
+    }
+    return versao
+}
+
+function configuraVersaoNosLinks() {
+    var tagsA = document.getElementsByTagName("a")
+    var ver = getVersao()
+    for(i = 0; i < tagsA.length; i++) {
+        var tagA = tagsA[i]
+        tagA.setAttribute("href", "index.html?version="+ver)
+    }
+}
+
+function selecionaVersao(ver) {
+    var elements = document.getElementsByName('version')
+    var versao
+    for(i = 0; i < elements.length; i++) {
+        elements[i].checked = ( elements[i].value === ver) 
+    }
+}
 
 function carregarJSON() {
   return  [

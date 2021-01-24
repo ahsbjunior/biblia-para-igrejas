@@ -10,7 +10,18 @@
 	<link rel="stylesheet" href="css/bpi.css" >
 </head>
 <body>
-    <div class="header_indice"><h1 id="titulo_indice">Bíblia da Garagem<!--<span id="trecho"></span>--></h1><input type="text" id="buscaInput" onkeyup="buscaTexto()" placeholder="busca livro"/></div>
+    <form action="index.html" method='get' id='formulario_bpi'>
+        <div class="header_indice">
+            <div class="div_versao">
+                <input type="radio" value="ara" id="ara" name="version" checked  onClick='configuraVersaoNosLinks()' /><label for="ara">ARA</label><br/>
+                <input type="radio" value="nvi" id="nvi" name="version" onClick='configuraVersaoNosLinks()' /><label for="nvi">NVI</label>
+            </div>
+            <div class="div_titulo">
+            <h1 id="titulo_indice">Bíblia da Garagem<!--<span id="trecho"></span>--></h1>
+            </div>
+            <input type="text" id="buscaInput" onkeyup="buscaTexto()" placeholder="busca livro"/>
+        </div>
+    </form> 
 <div id='div_home'>
 <table class="indice_tabela" id="tabela" border="0">
 <tr>
